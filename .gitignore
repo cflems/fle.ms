@@ -1,3 +1,6 @@
+# Actual config should be copied from config.sample.js and customized
+config.js
+
 # Logs
 logs
 *.log

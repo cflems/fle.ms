@@ -1,0 +1,22 @@
+{
+  "name": "fle.ms",
+  "version": "0.0.0",
+  "description": "fle.ms URL Shortener",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/cflems/fle.ms.git"
+  },
+  "author": "Carson Fleming <cflems@cflems.net> (https://cflems.net/)",
+  "bugs": {
+    "url": "https://github.com/cflems/fle.ms/issues"
+  },
+  "homepage": "https://github.com/cflems/fle.ms#readme",
+  "dependencies": {
+    "express": "^4.18.2",
+    "mongoose": "^7.6.3"
+  }
+}
