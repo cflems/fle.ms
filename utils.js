@@ -2,11 +2,25 @@ const path = require('path');
 const config = require('./config.js');
 
 const helperFunctions = {
+    sendFile : function (res, fileName) {
+        res.sendFile(fileName, {
+            root: path.join(__dirname)
+        }, err => {
+            if (!err) return;
+            utils.sendNotFoundError(res)
+        });
+    },
     sendNotFoundError : function (res) {
-        res.status(404).sendFile('static/notfound.html', {root: path.join(__dirname)},
-        err => res.json(
-            {status: "ERROR", statusCode: 404, errorType: "NOT FOUND", errorMessage: "Not Found"}
-        ));
+        if (!res.headersSent) res.status(404);
+        const statusJson = {status: "ERROR", statusCode: 404, errorType: "NOT FOUND", errorMessage: "Not Found"};
+        res.sendFile('static/notfound.html', {root: path.join(__dirname)},
+        err => {
+            if (!err) return;
+
+            console.error('[express] Encountered an error:', err);
+            if (!res.headersSent) res.json(statusJson);
+            else res.send(JSON.stringify(statusJson));
+        });
     },
     sendBadRequestError : function (res, errorMessage) {
         res.status(400).json({status: "ERROR", statusCode: 400, errorType: "BAD REQUEST", errorMessage});

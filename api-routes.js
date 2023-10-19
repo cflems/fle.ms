@@ -10,7 +10,7 @@ router.all('/', async (req, res) => {
 router.put('/:slug', async (req, res) => {
     try {
         const {url} = req.body;
-        const slug = req.params.slug;
+        const slug = req.params.slug.toLowerCase();
         if (!utils.isUrlFormatted(url))
             return utils.sendBadRequestError(res, 'URL "'+url+'" is malformatted. Must be a valid URL.');
         if (!utils.isAlphaNumeric(slug))

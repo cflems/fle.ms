@@ -2,10 +2,38 @@
 <html>
     <head>
         <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <link rel="canonical" href="https://fle.ms/" />
+        <link rel="icon" type="image/png" href="img/logo.png" />
+        <link rel="stylesheet" type="text/css" href="https://cflems.net/css/fonts.css" />
+        <link rel="stylesheet" type="text/css" href="css/standard.css" />
+        <link rel="stylesheet" type="text/css" href="css/mobile.css" />
         <title>fle.ms</title>
     </head>
-    <body>
-        <h1>fle.ms</h1>
-        <p>URL Shortener</p>
+    <body class="dark">
+        <div id="header">
+            <h1 id="logo">fle.ms</h1>
+        </div>
+        <div id="content">
+            <div id="lhs">
+                <div class="form-element">
+                    <p><label for="url">Paste a Long URL</label></p>
+                    <p><input id="url" type="text" placeholder="https://docs.google.com/spreadsheets/d/1SIXl0TxDgaTU49ZOph5s8HA5ZqtEakBCdQkqHzzfhf8/edit" class="fullsize" /></p>
+                </div>
+                <div class="form-element">
+                    <p><label for="slug">Customize Short URL</label></p>
+                    <p>
+                        <label id="base-url" for="slug">fle.ms/</label>
+                        <input id="slug" type="text" />
+                    </p>
+                </div>
+                <div class="form-element">
+                    <p><button id="shortenButton" class="fullsize">Shorten URL</button></p>
+                </div>
+            </div>
+            <div id="rhs">
+                <p>A URL shortener is a thing that does blah blah blah.</p>
+            </div>
+        </div>
     </body>
 </html>

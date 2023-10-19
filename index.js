@@ -21,6 +21,9 @@ async function serve() {
     app.use(express.urlencoded({extended: true}));
     app.use(express.json());
 
+    app.use('/css', express.static(__dirname+'/static/css'));
+    app.use('/js', express.static(__dirname+'/static/js'));
+    app.use('/img', express.static(__dirname+'/static/img'));
     app.use('/api', apiRoutes);
     app.use('/', routes);
     

@@ -1,0 +1,148 @@
+body,h1,h2,h3,h4,h5,h6,p {
+    margin: 0;
+}
+body {
+    margin: 0rem 8rem;
+    min-height: 100vh;
+    width: calc(100vw - 16rem);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
+    font-family: var(--cflems-ff-text-primary);
+}
+body.dark {
+    color: #ffffff;
+    background-image:
+        linear-gradient(to top, #000000f0 20%, #00000090 50%, #00000050),
+        url('../img/earth.jpg');
+}
+body.light {
+    color: #000000;
+    background-image:
+        linear-gradient(to bottom, #fffffff0 10%, #ffffff90 50%, #ffffff50),
+        url('../img/lake.jpg');
+}
+#header {
+    padding: 2rem 0;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+    cursor: default;
+    user-select: none;
+}
+#header #logo {
+    padding: 0.25em 0em 0em 1.75em;
+    background-image: url('../img/logo.png');
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: left center;
+    flex-grow: 1;
+    font-family: var(--cflems-ff-text-primary);
+    font-size: 3rem;
+}
+#content {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    height: 100%;
+}
+#content #lhs {
+    padding: 0rem 1rem;
+    flex-grow: 2;
+    background-color: #fcfcfc;
+    margin-right: 2rem;
+    color: #000000;
+    box-shadow: 0px 0px 0.5rem #000000b0;
+    border-radius: 0.25rem;
+    font-size: 16pt;
+    font-family: var(--cflems-ff-text-secondary);
+    font-weight: 400;
+    line-height: 1.5;
+}
+body.light #content #lhs {
+    background-color: #fdfbf9;
+    color: #28282b;
+    box-shadow: 0px 0px 0.5rem #d4d4d7b0;
+}
+body.dark #content #lhs {
+    background-color: #28282b;
+    color: #fdfbf9;
+    box-shadow: #000000b0;
+}
+#content #rhs {
+    flex-grow: 3;
+    font-family: var(--cflems-ff-text-primary);
+    font-size: 14pt;
+}
+.form-element {
+    margin: 1rem 0;
+}
+.form-element p {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: left;
+    margin: 0.25rem 0;
+}
+#base-url {
+    font-family: var(--cflems-ff-text-mono);
+    font-weight: 200;
+    font-size: 14pt;
+    margin: 0 0.25rem 0 0;
+}
+#slug {
+    width: 4.5rem;
+}
+body.dark #shortenButton {
+    background-color: #7550a6;
+    color: #fdfbf9;
+    border: none;
+    box-shadow: none;
+}
+body.dark #shortenButton:hover {
+    background-color: #6f4c9d;
+}
+body.dark #shortenButton:active {
+    background-color: #68369b;
+}
+body.light #shortenButton {
+    background-color: #6a8fd4;
+    color: #fdfbf9;
+    border: none;
+    box-shadow: none;
+}
+body.light #shortenButton:hover {
+    background-color: #6487c9;
+}
+body.light #shortenButton:active {
+    background-color: #5f80be;
+}
+.form-element p .fullsize {
+    flex-grow: 1;
+}
+.form-element input, .form-element button {
+    font-size: 14pt;
+    border-radius: 0.5rem;
+    border-style: solid;
+    border-width: 1px;
+}
+.form-element input[type=text] {
+    font-family: var(--cflems-ff-text-mono);
+    font-weight: 200;
+    padding: 0.33rem;
+}
+body.light .form-element input[type=text], body.light .form-element button {
+    border-color: #28282b;
+}
+body.dark .form-element input[type=text], body.dark .form-element button {
+    border-color: none;
+    /*box-shadow: 0rem 0rem 0.5rem #fdfbf9b0;*/
+}
+.form-element button {
+    font-family: var(--cflems-ff-text-primary);
+    font-weight: 400;
+    padding: 0.75rem;
+    cursor: pointer;
+    user-select: none;
+}

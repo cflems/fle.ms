@@ -5,14 +5,12 @@ const utils = require('./utils.js');
 const router = express.Router();
 
 router.get('/', async (req, res) => {
-    res.sendFile('static/index.html', {
-        root: path.join(__dirname)
-    }, () => utils.sendNotFoundError(res));
+    utils.sendFile(res, 'static/index.html');
 });
 
 router.get('/:slug', async (req, res) => {
     try {
-        const url = await Url.findOne({slug: req.params.slug});
+        const url = await Url.findOne({slug: req.params.slug.toLowerCase()});
         if (url)
             res.redirect(301, url.url);
         else
@@ -24,6 +22,6 @@ router.get('/:slug', async (req, res) => {
 
 router.all('/*', async (req, res) => {
     utils.sendNotFoundError(res);
-})
+});
 
 module.exports = router;
