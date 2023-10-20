@@ -1,5 +1,5 @@
 module.exports = {
-    PORT: 8080,
-    MONGO_URI: 'mongodb://127.0.0.1:27017/flems',
-    BASE_URI: 'https://fle.ms/'
+    BIND: 8080,
+    MONGO: 'mongodb://user:password@127.0.0.1:27017/flems',
+    BASE: 'https://fle.ms/'
 }

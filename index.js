@@ -6,7 +6,7 @@ const apiRoutes = require('./api-routes.js');
 
 async function serve() {
     try {
-        await mongoose.connect(config.MONGO_URI, {
+        await mongoose.connect(config.MONGO, {
             useNewUrlParser: true,
             useUnifiedTopology: true
         });
@@ -27,8 +27,7 @@ async function serve() {
     app.use('/api', apiRoutes);
     app.use('/', routes);
     
-    const PORT = config.PORT || 80;
-    app.listen(PORT, () => {
+    app.listen(config.BIND || 8080, () => {
         console.log('[express] Webserver started.');
     });    
 }
