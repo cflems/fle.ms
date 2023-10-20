@@ -9,6 +9,8 @@ User=www-data
 Group=www-data
 RuntimeDirectory=flems
 RuntimeDirectoryMode=0755
+StandardOutput=append:/var/log/flems.log
+StandardError=append:/var/log/flems.err
 ExecStart=/usr/bin/node /var/www/fle.ms/index.js
 Restart=on-failure
 
