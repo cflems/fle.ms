@@ -9,14 +9,6 @@ body {
     background-size: cover;
     background-attachment: fixed;
     font-family: var(--cflems-ff-text-primary);
-}
-body.dark {
-    color: #ffffff;
-    background-image:
-        linear-gradient(to top, #000000f0 20%, #00000090 50%, #00000050),
-        url('../img/earth.jpg');
-}
-body.light {
     color: #000000;
     background-image:
         linear-gradient(to bottom, #fffffff0 10%, #ffffff90 50%, #ffffff50),
@@ -59,16 +51,9 @@ body.light {
     font-family: var(--cflems-ff-text-secondary);
     font-weight: 400;
     line-height: 1.5;
-}
-body.light #content #lhs {
     background-color: #fdfbf9;
     color: #28282b;
     box-shadow: 0px 0px 0.5rem #d4d4d7b0;
-}
-body.dark #content #lhs {
-    background-color: #28282b;
-    color: #fdfbf9;
-    box-shadow: #000000b0;
 }
 #content #rhs {
     flex-grow: 3;
@@ -94,28 +79,16 @@ body.dark #content #lhs {
 #slug {
     width: 4.5rem;
 }
-body.dark #shortenButton {
-    background-color: #7550a6;
-    color: #fdfbf9;
-    border: none;
-    box-shadow: none;
-}
-body.dark #shortenButton:hover {
-    background-color: #6f4c9d;
-}
-body.dark #shortenButton:active {
-    background-color: #68369b;
-}
-body.light #shortenButton {
+#shortenButton {
     background-color: #6a8fd4;
     color: #fdfbf9;
     border: none;
     box-shadow: none;
 }
-body.light #shortenButton:hover {
+#shortenButton:hover {
     background-color: #6487c9;
 }
-body.light #shortenButton:active {
+#shortenButton:active {
     background-color: #5f80be;
 }
 .form-element p .fullsize {
@@ -132,12 +105,8 @@ body.light #shortenButton:active {
     font-weight: 200;
     padding: 0.33rem;
 }
-body.light .form-element input[type=text], body.light .form-element button {
+.form-element input[type=text], body.light .form-element button {
     border-color: #28282b;
-}
-body.dark .form-element input[type=text], body.dark .form-element button {
-    border-color: none;
-    /*box-shadow: 0rem 0rem 0.5rem #fdfbf9b0;*/
 }
 .form-element button {
     font-family: var(--cflems-ff-text-primary);
@@ -145,4 +114,34 @@ body.dark .form-element input[type=text], body.dark .form-element button {
     padding: 0.75rem;
     cursor: pointer;
     user-select: none;
+}
+
+@media (prefers-color-scheme: dark) {
+    body {
+        color: #ffffff;
+        background-image:
+            linear-gradient(to top, #000000f0 20%, #00000090 50%, #00000050),
+            url('../img/earth.jpg');
+    }
+    #content #lhs {
+        background-color: #28282b;
+        color: #fdfbf9;
+        box-shadow: #000000b0;
+    }
+    #shortenButton {
+        background-color: #7550a6;
+        color: #fdfbf9;
+        border: none;
+        box-shadow: none;
+    }
+    #shortenButton:hover {
+        background-color: #6f4c9d;
+    }
+    #shortenButton:active {
+        background-color: #68369b;
+    }
+    .form-element input[type=text], .form-element button {
+        border-color: none;
+        /*box-shadow: 0rem 0rem 0.5rem #fdfbf9b0;*/
+    }
 }
