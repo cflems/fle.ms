@@ -39,6 +39,16 @@ body {
     align-items: flex-start;
     height: 100%;
 }
+#content a {
+    text-decoration: none;
+    color: #6a8fd4;
+}
+#content a:hover {
+    color: #5f80be;
+}
+#content a:active {
+    color: #5472a9;
+}
 #content #lhs {
     padding: 0rem 1rem;
     flex-grow: 2;
@@ -118,10 +128,20 @@ body {
 
 @media (prefers-color-scheme: dark) {
     body {
-        color: #ffffff;
+        color: #fdfbf9;
         background-image:
             linear-gradient(to top, #000000f0 20%, #00000090 50%, #00000050),
             url('https://cdn.cflems.net/fle.ms/earth.webp');
+    }
+    #content a {
+        color: #68369b;
+    }    
+    #content a:hover {
+        color: #723aaa;
+    }
+    #content a:active {
+        text-decoration: none;
+        color: #7d3fbb;
     }
     #content #lhs {
         background-color: #28282b;
