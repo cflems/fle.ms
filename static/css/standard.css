@@ -11,7 +11,7 @@ body {
     font-family: var(--cflems-ff-text-primary);
     color: #000000;
     background-image:
-        linear-gradient(to bottom, #fffffff0 10%, #ffffff90 50%, #ffffff50),
+        linear-gradient(to bottom, #fffffff0 10%, #ffffff90 50%, #ffffff70),
         url('https://cdn.cflems.net/fle.ms/lake.webp');
 }
 #header {
@@ -37,7 +37,6 @@ body {
     display: flex;
     flex-direction: row;
     align-items: flex-start;
-    height: 100%;
 }
 #content a {
     text-decoration: none;
