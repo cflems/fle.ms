@@ -7,13 +7,13 @@ const router = express.Router();
 async function createRoute(res, url, slug) {
     try {
         if (!utils.isUrlFormatted(url))
-            return utils.sendBadRequestError(res, 'URL "'+url+'" is malformatted. Must be a valid URL.');
+            return utils.sendBadRequestError(res, 'URL "'+url+'" is malformatted. Must be a valid URL.', 'Malformed URL');
         if (!utils.isAlphaNumeric(slug))
-            return utils.sendBadRequestError(res, 'Slug "'+slug+'" is malformatted. Must be alphanumeric.');
+            return utils.sendBadRequestError(res, 'Slug "'+slug+'" is malformatted. Must be alphanumeric.', 'Malformed Short URL');
 
         slug = slug.toLowerCase();
         if (await Url.exists({slug: slug}))
-            return utils.sendBadRequestError(res, 'Slug "'+slug+'" already exists. Updates are not supported at this time.');
+            return utils.sendBadRequestError(res, 'Slug "'+slug+'" already exists. Updates are not supported at this time.', 'Already Exists');
 
         await new Url({url, slug}).save();
         utils.sendSuccessfulSlugCreation(res, slug);

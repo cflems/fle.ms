@@ -24,8 +24,8 @@ const helperFunctions = {
             else res.send(JSON.stringify(statusJson));
         });
     },
-    sendBadRequestError : function (res, errorMessage) {
-        res.status(400).json({status: "ERROR", statusCode: 400, errorType: "BAD REQUEST", errorMessage, uiString: "Already Exists"});
+    sendBadRequestError : function (res, errorMessage, uiString) {
+        res.status(400).json({status: "ERROR", statusCode: 400, errorType: "BAD REQUEST", errorMessage, uiString});
     },
     sendInternalServerError : function (res, error) {
         console.error('[express] Error:', error);
