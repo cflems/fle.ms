@@ -2,7 +2,6 @@ const express = require('express');
 const mongoose = require('mongoose');
 const config = require('./config.js');
 const routes = require('./routes.js');
-const apiRoutes = require('./api-routes.js');
 
 async function serve() {
     try {
@@ -21,7 +20,6 @@ async function serve() {
     app.use(express.urlencoded({extended: true}));
     app.use(express.json());
 
-    app.use('/api', apiRoutes);
     app.use('/css', express.static(__dirname+'/static/css'));
     app.use('/js', express.static(__dirname+'/static/js'));
     app.use('/', routes);

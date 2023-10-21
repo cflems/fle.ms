@@ -70,6 +70,9 @@ body {
     font-family: var(--cflems-ff-text-primary);
     font-size: 14pt;
 }
+#content #rhs p {
+    margin-bottom: 0.5rem;
+}
 .form-element {
     margin: 1rem 0;
 }
@@ -101,6 +104,15 @@ body {
 #shortenButton:active {
     background-color: #5f80be;
 }
+#shortenButton.error {
+    background-color: #b2022f;
+}
+#shortenButton.error:hover {
+    background-color: #a0012a;
+}
+#shortenButton.error:active {
+    background-color: #900025;
+}
 .form-element p .fullsize {
     flex-grow: 1;
 }
@@ -128,9 +140,9 @@ body {
 
 @media (prefers-color-scheme: dark) {
     body {
-        color: #fdfbf9;
+        color: #e0e0e0;
         background-image:
-            linear-gradient(to top, #000000f0 20%, #00000090 50%, #00000050),
+            linear-gradient(to top, #000000f0 20%, #00000090 50%, #00000070),
             url('https://cdn.cflems.net/fle.ms/earth.webp');
     }
     #content a {
@@ -160,8 +172,16 @@ body {
     #shortenButton:active {
         background-color: #68369b;
     }
+    #shortenButton.error {
+        background-color: #74001d;
+    }
+    #shortenButton.error:hover {
+        background-color: #68001a;
+    }
+    #shortenButton.error:active {
+        background-color: #5d0017;
+    }
     .form-element input[type=text], .form-element button {
         border-color: none;
-        /*box-shadow: 0rem 0rem 0.5rem #fdfbf9b0;*/
     }
 }

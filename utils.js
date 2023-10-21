@@ -1,7 +1,9 @@
 const path = require('path');
 const config = require('./config.js');
+const slugUtils = require('./static/js/slug.js');
 
 const helperFunctions = {
+    generateSlug : slugUtils.generateSlug,
     sendFile : function (res, fileName) {
         res.sendFile(fileName, {
             root: path.join(__dirname)
@@ -23,9 +25,10 @@ const helperFunctions = {
         });
     },
     sendBadRequestError : function (res, errorMessage) {
-        res.status(400).json({status: "ERROR", statusCode: 400, errorType: "BAD REQUEST", errorMessage});
+        res.status(400).json({status: "ERROR", statusCode: 400, errorType: "BAD REQUEST", errorMessage, uiString: "Already Exists"});
     },
-    sendInternalServerError : function (res) {
+    sendInternalServerError : function (res, error) {
+        console.error('[express] Error:', error);
         res.status(404).json({status: "ERROR", statusCode: 500, errorType: "INTERNAL", errorMessage: "Internal Server Error"});
     },
     sendSuccessfulSlugCreation : function (res, slug) {
