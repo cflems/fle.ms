@@ -3,6 +3,13 @@
     const inpUrl = document.querySelector('#url');
     const inpSlug = document.querySelector('#slug');
 
+    function uiError (message) {
+        btn.textContent = message;
+        btn.classList.add('error');
+        inpUrl.addEventListener('input', resetState);
+        inpSlug.addEventListener('input', resetState);
+    }
+
     function shorten (e) {
         if (!inpUrl.value) return;
 
@@ -10,25 +17,22 @@
         req.addEventListener('load', () => {
             const reply = JSON.parse(req.responseText);
             if (req.status != 201) {
-                btn.innerText = reply.uiString || 'API Error';
-                btn.classList.add('error');
                 console.error(req.status, reply.errorMessage);
+                uiError(reply.uiString || 'API Error');
                 return;
             }
 
             inpUrl.value = reply.data.shortUrl;
-            inpSlug.value = '';
             btn.removeEventListener('click', shorten);
             btn.classList.remove('error');
-            btn.innerText = 'Copy';
+            btn.textContent = 'Copy';
             btn.addEventListener('click', copyUrl);
+            inpUrl.addEventListener('input', resetState);
+            inpSlug.addEventListener('input', resetState);
             inpUrl.focus();
             inpUrl.select();
         });
-        req.addEventListener('error', () => {
-            btn.innerText = 'Connection Error';
-            btn.classList.add('error');
-        })
+        req.addEventListener('error', () => uiError('Connection Error'));
 
         if (inpSlug.value)
             req.open('PUT', '/'+encodeURIComponent(inpSlug.value));
@@ -40,7 +44,16 @@
 
     async function copyUrl(e) {
         await navigator.clipboard.writeText(encodeURI(inpUrl.value));
-        btn.innerText = 'Copied!';
+        btn.textContent = 'Copied!';
+    }
+
+    function resetState () {
+        inpUrl.removeEventListener('input', resetState);
+        inpSlug.removeEventListener('input', resetState);
+        btn.removeEventListener('click', copyUrl);
+        btn.classList.remove('error');
+        btn.textContent = 'Shorten URL';
+        btn.addEventListener('click', shorten);
     }
 
     btn.addEventListener('click', shorten);
