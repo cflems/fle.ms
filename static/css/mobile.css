@@ -37,4 +37,11 @@
         font-size: 1.5em;
         margin-bottom: 1rem;
     }
+    #footer {
+        justify-content: space-evenly;
+        font-size: 1.25em;
+    }
+    #footer span {
+        margin: 0;
+    }
 }

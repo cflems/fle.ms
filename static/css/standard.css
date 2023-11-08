@@ -1,10 +1,16 @@
 body,h1,h2,h3,h4,h5,h6,p {
     margin: 0;
 }
+a {
+    text-decoration: none;
+}
 body {
+    display: flex;
+    flex-direction: column;
     margin: 0rem 8rem;
     min-height: 100vh;
     width: calc(100vw - 16rem);
+    background-color: #fdfbf9;
     background-repeat: no-repeat;
     background-size: cover;
     background-attachment: fixed;
@@ -37,16 +43,7 @@ body {
     display: flex;
     flex-direction: row;
     align-items: flex-start;
-}
-#content a {
-    text-decoration: none;
-    color: #6a8fd4;
-}
-#content a:hover {
-    color: #5f80be;
-}
-#content a:active {
-    color: #5472a9;
+    flex-grow: 1;
 }
 #content #lhs {
     padding: 0rem 1rem;
@@ -72,6 +69,16 @@ body {
 #content #rhs p {
     margin-bottom: 0.5rem;
 }
+#content a {
+    color: #6a8fd4;
+}
+#content a:hover {
+    color: #5f80be;
+}
+#content a:active {
+    color: #5472a9;
+}
+
 .form-element {
     margin: 1rem 0;
 }
@@ -136,10 +143,33 @@ body {
     cursor: pointer;
     user-select: none;
 }
+#footer {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    margin: 0.5rem 0rem;
+    font-family: var(--cflems-ff-text-mono);
+    font-size: 12pt;
+    text-transform: lowercase;
+    text-align: center;
+}
+#footer span {
+    margin: 0rem 1.5rem;
+}
+#footer a {
+    color: #00256a;
+}    
+#footer a:hover {
+    color: #153a7f;
+}
+#footer a:active {
+    color: #2a4f94;
+}
 
 @media (prefers-color-scheme: dark) {
     body {
         color: #e0e0e0;
+        background-color: #101010;
         background-image:
             linear-gradient(to top, #000000f0 20%, #00000090 50%, #00000070),
             url('https://cdn.cflems.net/fle.ms/earth.webp');
@@ -151,8 +181,16 @@ body {
         color: #723aaa;
     }
     #content a:active {
-        text-decoration: none;
         color: #7d3fbb;
+    }
+    #footer a {
+        color: #6a8fd4;
+    }
+    #footer a:hover {
+        color: #5f80be;
+    }
+    #footer a:active {
+        color: #5472a9;
     }
     #content #lhs {
         background-color: #28282b;
