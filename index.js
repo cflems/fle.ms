@@ -20,6 +20,7 @@ async function serve() {
     app.use(express.urlencoded({extended: true}));
     app.use(express.json());
 
+    app.use('/favicon.ico', express.static(__dirname+'/static/favicon.ico'));
     app.use('/css', express.static(__dirname+'/static/css'));
     app.use('/js', express.static(__dirname+'/static/js'));
     app.use('/', routes);
