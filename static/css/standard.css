@@ -18,7 +18,7 @@ body {
     color: #000000;
     background-image:
         linear-gradient(to bottom, #fffffff0 10%, #ffffff90 50%, #ffffff70),
-        url('https://cdn.cflems.net/fle.ms/lake.webp');
+        url('https://c.fle.ms/fle.ms/lake.webp');
 }
 #header {
     padding: 2rem 0;
@@ -31,7 +31,7 @@ body {
 }
 #header #logo {
     padding: 0.25em 0em 0em 1.75em;
-    background-image: url('https://cdn.cflems.net/fle.ms/logo.webp');
+    background-image: url('https://c.fle.ms/fle.ms/logo.webp');
     background-repeat: no-repeat;
     background-size: contain;
     background-position: left center;
@@ -172,7 +172,7 @@ body {
         background-color: #101010;
         background-image:
             linear-gradient(to top, #000000f0 20%, #00000090 50%, #00000070),
-            url('https://cdn.cflems.net/fle.ms/earth.webp');
+            url('https://c.fle.ms/fle.ms/earth.webp');
     }
     #content a {
         color: #68369b;
