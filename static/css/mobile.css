@@ -25,6 +25,9 @@
         flex-grow: 1;
     }
     .form-element input, .form-element button {
+        font-size: 18pt;
+    }
+    .form-element input[type=text] {
         font-size: 16pt;
     }
     #content #rhs {
