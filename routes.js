@@ -8,8 +8,8 @@ async function createRoute(res, url, slug) {
     try {
         if (!utils.isUrlFormatted(url))
             return utils.sendBadRequestError(res, 'URL "'+url+'" is malformatted. Must be a valid URL.', 'Malformed URL');
-        if (!utils.isAlphaNumeric(slug))
-            return utils.sendBadRequestError(res, 'Slug "'+slug+'" is malformatted. Must be alphanumeric.', 'Malformed Short URL');
+        if (!utils.isSlugFormatted(slug))
+            return utils.sendBadRequestError(res, 'Slug "'+slug+'" is malformatted. Must be 2+ letters or numbers with optional dashes in the middle.', 'Malformed Short URL');
 
         slug = slug.toLowerCase();
         if (await Url.exists({slug: slug}))

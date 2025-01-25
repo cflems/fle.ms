@@ -34,8 +34,8 @@ const helperFunctions = {
     sendSuccessfulSlugCreation : function (res, slug) {
         res.status(201).json({status: "SUCCESS", statusCode: 201, data: {shortUrl: config.BASE+slug}});
     },
-    isAlphaNumeric : function (str) {
-        return str.match(/^[a-zA-Z0-9]+$/) !== null;
+    isSlugFormatted : function (str) {
+        return str.match(/^[a-zA-Z0-9][a-zA-Z0-9\-]*[a-zA-Z0-9]$/) !== null;
     },
     isUrlFormatted : function (str) {
         try {
